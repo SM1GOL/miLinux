@@ -12,3 +12,4 @@ $ miLinux.sh -g
 $ miLinux.sh -m
 
 ![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/8965f88a-c9ec-4623-8a8b-b267fad83b1d)
+
