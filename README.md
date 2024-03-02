@@ -5,9 +5,9 @@ $ miLinux.sh
 
 ![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/89833141-3d91-4267-a582-bcaae2f82e53)
 
-$ miLinux.sh -r
+$ miLinux.sh -g
 
-![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/0c7f8f38-d9b8-4c45-8f95-c10bbf710796)
+![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/80f37891-1149-42b7-852f-55158f7196b4)
 
 $ miLinux.sh -m
 
