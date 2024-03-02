@@ -5,6 +5,10 @@ $ miLinux.sh
 
 ![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/ed93f274-b30a-4fff-929c-1b221396a6e6)
 
+$ miLinux.sh -g
+
+![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/583eb531-3d10-4782-93c8-db20d5ec2b89)
+
 $ miLinux.sh -r
 
 ![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/50b07a21-5e4c-4805-87fa-a87606ce8f90)
