@@ -8,8 +8,8 @@ logo () {
 echo -e "\033[1m\033[96m"
  echo "[][]  [][]  [][][]  []      [][][]  [][][]  []  []  []  []  []"
  echo "[]  []  []    []    []        []    []  []  []  []  []    []"
- echo "[]      []    []    []        []    []  []  []  []  []  []  []" 
- echo "[]      []  [][][]  [][][]  [][][]  []  [][][]  [][][]  []  [] v0.3"
+ echo "[]      []    []    []        []    []  []  []  []  []  []  []"
+ echo "[]      []  [][][]  [][][]  [][][]  []  [][][]  [][][]  []  [] v0.4"
  echo -e "\n\033[0m"
 }
 definition () {
@@ -52,7 +52,6 @@ default () {
  echo -e "\033[1m\033[96m[] Processor type:\033[0m $(uname -p)"
 
  echo -e "\033[1m\033[96m[] Mac address:\033[0m $(ifconfig | head -n1 | grep -o 'HWaddr .*' | awk '{print $2}')"
-
  echo -e "\033[1m\033[96m[] Ip address:\033[0m $(ifconfig | head -n2 | tail -n1 | grep -o 'inet addr:[0-9.]*' | head -n 1 | awk -F: '{print $2}')"
 
  echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
@@ -68,6 +67,7 @@ echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
   echo -e "\033[1m\033[96m[] $propriety:\033[0m$value"
  done</proc/meminfo
 echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
+return
 }
 
 #get cpu informations
@@ -80,6 +80,7 @@ echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
   echo -e "\033[1m\033[96m[] $propriety:\033[0m$value"
  done</proc/cpuinfo
 echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
+return
 }
 
 #show ram status
@@ -89,25 +90,29 @@ echo -e "\033[1m\033[96m[][] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
  echo -e "\033[1m\033[96m$(free |tail -n2|head -n1|cut -d: -f1)\033[0m$(free -h |tail -n2|head -n1|cut -d: -f2)"
  echo -e "\033[1m\033[96m$(free |tail -n1|cut -d: -f1)\033[0m$(free -h|tail -n1|cut -d: -f2)"
 echo -e "\033[1m\033[96m[][] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
+return
 }
 
 #get services informations
 services () {
+ echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
+ service --status-all&>temp_file
+ while IFS= read -r line;
+  do
+   service_name=$(echo $line|cut -d']' -f2)
+   whatis $service_name&>temp_serv
+   grep -i nothing temp_serv>/dev/null
+
+   if [ $? -eq 1 ]; then #if there is info about the service
+    value=$(cat temp_serv|cut -d- -f2)
+   else
+    value="\033[91mNo definition available"
+   fi
+   echo -e "\033[1m\033[96m[]$service_name:\033[0m$value"
+  done<temp_file
+  rm -f temp_file,temp_serv
 echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
-service --status-all&>temp_file 
-while IFS= read -r line;
- do
-  propriety=$(echo $line|cut -d']' -f2)
-  def=$(whatis $propriety)
-  if [ $? -eq 16 ];then #if there is info about the service
-   value=""
-  else
-   value=$(echo $def|cut -d- -f2)
-  fi
-  echo -e "\033[1m\033[96m[]$propriety:\033[0m$value"
- done<temp_file
- rm -f temp_file
-echo -e "\033[1m\033[96m[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]"
+return
 }
 
 #show an error
