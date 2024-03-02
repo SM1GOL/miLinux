@@ -3,13 +3,13 @@
 
 $ miLinux.sh
 
-![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/89833141-3d91-4267-a582-bcaae2f82e53)
+![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/ed93f274-b30a-4fff-929c-1b221396a6e6)
 
-$ miLinux.sh -g
+$ miLinux.sh -r
 
-![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/80f37891-1149-42b7-852f-55158f7196b4)
+![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/50b07a21-5e4c-4805-87fa-a87606ce8f90)
 
 $ miLinux.sh -m
 
-![image](https://github.com/ZaaraouiHosn-Y/shell_scripts/assets/86828776/8965f88a-c9ec-4623-8a8b-b267fad83b1d)
+![image](https://github.com/SM1GOL/shell_scripts/assets/86828776/265cc3b2-1ffa-4502-8f3c-59cea51a4530)
 
