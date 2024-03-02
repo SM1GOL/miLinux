@@ -5,18 +5,24 @@ option=$1 #option value if existed
 
 #banner
 logo () {
-echo -e "\033[1m\033[96m"
+ local delay=0.1
+ echo -e "\033[1m\033[96m"
+ sleep $delay
  echo "[][]  [][]  [][][]  []      [][][]  [][][]  []  []  []  []  []"
+ sleep $delay
  echo "[]  []  []    []    []        []    []  []  []  []  []    []"
+ sleep $delay
  echo "[]      []    []    []        []    []  []  []  []  []  []  []"
+  sleep $delay
  echo "[]      []  [][][]  [][][]  [][][]  []  [][][]  [][][]  []  [] v0.4"
  echo -e "\n\033[0m"
 }
+
 definition () {
  echo -e "\033[1m\033[96mmiLinux\033[0m is a simple script that gives you many informations about your linux distribution."
  echo "Usage: miLinux.sh [OPTION]"
  echo -e "Options:\033[96m"
- echo -e "\t-g, --general  : show a general informations."
+ echo -e "\t-g, --general  : show general informations."
  echo -e "\t-c, --cpu      : show cpu informations."
  echo -e "\t-m, --memory   : show memory informations."
  echo -e "\t-r, --ram      : show RAM status."
